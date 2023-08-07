@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "expo-react-native-threads": ["../src/index"],
+      "expo-react-native-threads/*": ["../src/*"]
+    }
+  }
+}
