@@ -1,9 +1,6 @@
 {
-  "platforms": ["ios", "android", "web"],
+  "platforms": ["ios"],
   "ios": {
     "modules": ["ExpoReactNativeThreadsModule"]
-  },
-  "android": {
-    "modules": ["expo.modules.reactnativethreads.ExpoReactNativeThreadsModule"]
   }
 }

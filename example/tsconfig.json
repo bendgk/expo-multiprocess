@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "expo-react-native-threads": ["../src/index"],
-      "expo-react-native-threads/*": ["../src/*"]
+      "expo-multiprocess": ["../src/index"],
+      "expo-multiprocess/*": ["../src/*"]
     }
   }
 }

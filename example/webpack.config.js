@@ -6,7 +6,7 @@ module.exports = async (env, argv) => {
     {
       ...env,
       babel: {
-        dangerouslyAddModulePathsToTranspile: ['expo-react-native-threads'],
+        dangerouslyAddModulePathsToTranspile: ['expo-multiprocess'],
       },
     },
     argv

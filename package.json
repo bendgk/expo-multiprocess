@@ -1,5 +1,5 @@
 {
-  "name": "expo-react-native-threads",
+  "name": "expo-multiprocess",
   "version": "0.1.0",
   "description": "expo module wrapper for react-native-threads",
   "main": "build/index.js",
@@ -18,16 +18,16 @@
   "keywords": [
     "react-native",
     "expo",
-    "expo-react-native-threads",
+    "expo-multiprocess",
     "ExpoReactNativeThreads"
   ],
-  "repository": "https://github.com/gambitdevllc/expo-react-native-threads",
+  "repository": "https://github.com/bendgk/expo-multiprocess",
   "bugs": {
-    "url": "https://github.com/gambitdevllc/expo-react-native-threads/issues"
+    "url": "https://github.com/bendgk/expo-multiprocess/issues"
   },
-  "author": "gambitdev <kosten@gambit.dev> (https://github.com/gambitdevllc)",
+  "author": "bendgk <benkosten@gmail.com> (https://github.com/bendgk)",
   "license": "MIT",
-  "homepage": "https://github.com/gambitdevllc/expo-react-native-threads#readme",
+  "homepage": "https://github.com/bendgk/expo-multiprocess#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.0.25",

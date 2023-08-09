@@ -10,7 +10,7 @@ module.exports = function (api) {
           extensions: ['.tsx', '.ts', '.js', '.json'],
           alias: {
             // For development, we want to alias the library to the source
-            'expo-react-native-threads': path.join(__dirname, '..', 'src', 'index.ts'),
+            'expo-multiprocess': path.join(__dirname, '..', 'src', 'index.ts'),
           },
         },
       ],

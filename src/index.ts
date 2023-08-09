@@ -1,26 +1,42 @@
-import { NativeModulesProxy, EventEmitter, Subscription } from 'expo-modules-core';
+import { NativeModulesProxy, EventEmitter } from 'expo-modules-core';
+import {
+  NativeModules,
+  DeviceEventEmitter,
+} from 'react-native';
 
-// Import the native module. On web, it will be resolved to ExpoReactNativeThreads.web.ts
-// and on native platforms to ExpoReactNativeThreads.ts
 import ExpoReactNativeThreadsModule from './ExpoReactNativeThreadsModule';
-import ExpoReactNativeThreadsView from './ExpoReactNativeThreadsView';
-import { ChangeEventPayload, ExpoReactNativeThreadsViewProps } from './ExpoReactNativeThreads.types';
 
-// Get the native constant value.
-export const PI = ExpoReactNativeThreadsModule.PI;
-
-export function hello(): string {
-  return ExpoReactNativeThreadsModule.hello();
+type MessageEvent = {
+  id: number,
+  message: string
 }
 
-export async function setValueAsync(value: string) {
-  return await ExpoReactNativeThreadsModule.setValueAsync(value);
+export class Thread {
+  private id: number
+  private _cb: null | ((message: string) => void) = null
+
+  constructor(js: string) {
+    this.id = ExpoReactNativeThreadsModule.startThread(js)
+    if (this.id === -1) return
+    
+    DeviceEventEmitter.addListener(`onNative${this.id}`, (message) => {
+      console.log(this.id, message)
+      !!message && this._cb && this._cb(message)
+    })
+  }
+
+  postMessage(message) {
+    ExpoReactNativeThreadsModule.postThreadMessage(this.id, message)
+  }
+
+  terminate() {
+    ExpoReactNativeThreadsModule.stopThread(this.id)
+  }
+
+  onmessage(cb: (message: string) => void) {
+    this._cb = cb
+  }
 }
 
-const emitter = new EventEmitter(ExpoReactNativeThreadsModule ?? NativeModulesProxy.ExpoReactNativeThreads);
-
-export function addChangeListener(listener: (event: ChangeEventPayload) => void): Subscription {
-  return emitter.addListener<ChangeEventPayload>('onChange', listener);
-}
-
-export { ExpoReactNativeThreadsView, ExpoReactNativeThreadsViewProps, ChangeEventPayload };
+export default Thread;
+export { self } from "./self"
