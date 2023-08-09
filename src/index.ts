@@ -20,7 +20,6 @@ export class Thread {
     if (this.id === -1) return
     
     DeviceEventEmitter.addListener(`onNative${this.id}`, (message) => {
-      console.log(this.id, message)
       !!message && this._cb && this._cb(message)
     })
   }
