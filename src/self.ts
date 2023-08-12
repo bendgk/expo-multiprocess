@@ -8,17 +8,17 @@ const emitter = new EventEmitter(ExpoReactNativeThreadsModule);
 
 type MessageEvent = {
     id: number,
-    message: string
+    message: Uint8Array
 }
 
 interface Worker {
     onmessage: null | ((message: MessageEvent) => void)
-    postMessage: (message: string) => void
+    postMessage: (message: any[]) => void
 }
 
 export const self: Worker = {
     onmessage: null,
-    postMessage: (message: string) => {
+    postMessage: (message: any[]) => {
         if (!message) { return }
         ThreadSelfManager.postMessage(message);
     }

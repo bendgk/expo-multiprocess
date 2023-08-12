@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "exporeactnativethreadsexample.app"
-               BlueprintName = "exporeactnativethreadsexample"
-               ReferencedContainer = "container:exporeactnativethreadsexample.xcodeproj">
+               BuildableName = "expomultiprocessexample.app"
+               BlueprintName = "expomultiprocessexample"
+               ReferencedContainer = "container:expomultiprocessexample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "exporeactnativethreadsexampleTests.xctest"
-               BlueprintName = "exporeactnativethreadsexampleTests"
-               ReferencedContainer = "container:exporeactnativethreadsexample.xcodeproj">
+               BuildableName = "expomultiprocessexampleTests.xctest"
+               BlueprintName = "expomultiprocessexampleTests"
+               ReferencedContainer = "container:expomultiprocessexample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "exporeactnativethreadsexample.app"
-            BlueprintName = "exporeactnativethreadsexample"
-            ReferencedContainer = "container:exporeactnativethreadsexample.xcodeproj">
+            BuildableName = "expomultiprocessexample.app"
+            BlueprintName = "expomultiprocessexample"
+            ReferencedContainer = "container:expomultiprocessexample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "exporeactnativethreadsexample.app"
-            BlueprintName = "exporeactnativethreadsexample"
-            ReferencedContainer = "container:exporeactnativethreadsexample.xcodeproj">
+            BuildableName = "expomultiprocessexample.app"
+            BlueprintName = "expomultiprocessexample"
+            ReferencedContainer = "container:expomultiprocessexample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

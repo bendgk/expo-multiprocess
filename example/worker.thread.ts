@@ -4,5 +4,7 @@ let count = 0;
 
 self.onmessage = message => {
   count++;
-  const id = self.postMessage(`Message #${count} from worker thread!`);
+  console.log(message)
+  console.log(`Worker thread: ${count}`);
+  self.postMessage([count]);
 }

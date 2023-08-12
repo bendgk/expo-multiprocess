@@ -48,7 +48,7 @@ public class ExpoReactNativeThreadsModule: Module {
       }
     }
       
-    Function("postThreadMessage") { (id: Int32, message: String) -> Void in
+    Function("postThreadMessage") { (id: Int32, message: Uint8Array) -> Void in
       if (threads.isEmpty) {
         return
       }
@@ -59,10 +59,15 @@ public class ExpoReactNativeThreadsModule: Module {
         return
       }
       
+      var copy = Array<UInt8>()
+      for i in 0...message.length-1 {
+        copy.append(message[i])
+      }
+      
       threadBridge?.eventDispatcher()?.sendAppEvent(withName: "onJs", body: [
         "id": id,
-        "message": message
-      ])
+        "message": copy
+      ] as [String : Any])
     }
       
     Function("stopThread") { (id: Int32) -> Void in

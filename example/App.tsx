@@ -2,11 +2,13 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import {Thread} from 'expo-multiprocess';
 import { useMemo, useState } from 'react';
 
+const m = new Uint8Array([1, 2, 3, 4, 5])
+
 export default function App() {
-  const [messages, setMessage] = useState<string[]>([]);
+  const [messages, setMessage] = useState<Uint8Array[]>([]);
 
   const thread = useMemo(() => {
-    const t = new Thread('./worker.thread.js')
+    const t = new Thread('./worker.thread.ts')
     t.onmessage((message) => {
       console.log(`App: got message ${message}`)
       setMessage((messages) => [...messages, message])
@@ -21,7 +23,8 @@ export default function App() {
       </Text>
 
       <Button title="Send Message To Worker Thread" onPress={() => {
-        thread.postMessage('Hello')
+        console.log(m)
+        thread.postMessage(m)
       }} />
 
       <View>

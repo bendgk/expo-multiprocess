@@ -1,19 +1,9 @@
-import { NativeModulesProxy, EventEmitter } from 'expo-modules-core';
-import {
-  NativeModules,
-  DeviceEventEmitter,
-} from 'react-native';
-
+import { DeviceEventEmitter} from 'react-native';
 import ExpoReactNativeThreadsModule from './ExpoReactNativeThreadsModule';
-
-type MessageEvent = {
-  id: number,
-  message: string
-}
 
 export class Thread {
   private id: number
-  private _cb: null | ((message: string) => void) = null
+  private _cb: null | ((message: Uint8Array) => void) = null
 
   constructor(js: string) {
     this.id = ExpoReactNativeThreadsModule.startThread(js)
@@ -24,7 +14,7 @@ export class Thread {
     })
   }
 
-  postMessage(message) {
+  postMessage(message: Uint8Array) {
     ExpoReactNativeThreadsModule.postThreadMessage(this.id, message)
   }
 
@@ -32,7 +22,7 @@ export class Thread {
     ExpoReactNativeThreadsModule.stopThread(this.id)
   }
 
-  onmessage(cb: (message: string) => void) {
+  onmessage(cb: (message: Uint8Array) => void) {
     this._cb = cb
   }
 }
