@@ -10,7 +10,8 @@ export class Thread {
     if (this.id === -1) return
     
     DeviceEventEmitter.addListener(`onNative${this.id}`, (message) => {
-      !!message && this._cb && this._cb(message)
+      const m = new Uint8Array(message)
+      !!message && this._cb && this._cb(m)
     })
   }
 
